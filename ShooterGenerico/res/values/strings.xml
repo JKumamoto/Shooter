@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Shooter generico</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="menuIniciar">Iniciar</string>
+    <string name="menuSair">Sair</string>
+    <string name="configNome">Troque o Nome</string>
+    <string name="configSom">Altere o Som</string>
+    <string name="config_salvar">Salvar</string>
+    
+
+</resources>
