@@ -30,4 +30,14 @@
         android:text="Pontuacao: "
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="76dp"
+        android:text="Button"
+        android:onClick="btnVoltar" />
+
 </RelativeLayout>

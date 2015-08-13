@@ -9,6 +9,8 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.os.Handler;
+import android.os.Message;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -21,6 +23,7 @@ public class Game1 extends View implements Runnable{
 	private ArrayList<Enemy> inimigos;
 	private ArrayList<Explosao> explosao;
 	private int cont;
+	private Handler handler;
 	
 	private int x, y;
 	
@@ -43,6 +46,10 @@ public class Game1 extends View implements Runnable{
 			y=(int) evt.getY();
 		}
 		return true;
+	}
+	
+	public void setHandler(Handler handler){
+		this.handler=handler;
 	}
 	
 	public void Update(){
@@ -161,9 +168,9 @@ public class Game1 extends View implements Runnable{
     			Thread.sleep(50);
 			}
 			this.postInvalidate();
-			Context com=getContext();
-			Intent i=new Intent(com, GameOver.class);
-			com.startActivity(i);
+			Message msg=new Message();
+			msg.what=100;
+			handler.sendMessage(msg);
 		}
 		catch(Exception ex){
 			ex.printStackTrace();

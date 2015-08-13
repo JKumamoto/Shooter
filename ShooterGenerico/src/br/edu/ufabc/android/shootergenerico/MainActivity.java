@@ -1,13 +1,17 @@
 package br.edu.ufabc.android.shootergenerico;
 
 import java.io.IOException;
-
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Point;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -15,13 +19,26 @@ public class MainActivity extends Activity {
 	
 	private Game1 game;
 	private Thread t;
+	private Handler handler;
 	
+	@SuppressLint("HandlerLeak")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		try {
-			setVisualParameters();
+			setUpParameters();
+			handler=new Handler(){
+				public void handleMessage(Message msg){
+					super.handleMessage(msg);
+					if(msg.what==100){
+						Context com=getBaseContext();
+						Intent i=new Intent(com, GameOver.class);
+						startActivity(i);
+					}
+				}
+			};
 			game=new Game1(this);
+			game.setHandler(handler);
 			t=new Thread(game);
 			setContentView(game);
 			t.start();
@@ -50,7 +67,7 @@ public class MainActivity extends Activity {
     }
     */
 	
-	public void setVisualParameters() throws IOException{
+	public void setUpParameters() throws IOException{
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		
