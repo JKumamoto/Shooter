@@ -48,15 +48,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp" />
 
-        <Button
-            android:id="@+id/btnConfigSave"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:text="@string/config_salvar"
-            android:onClick="btnConfigSave" />
-
     </LinearLayout>
     
     <LinearLayout 
@@ -64,6 +55,16 @@
 	    android:layout_height="0dp"
 	    android:layout_weight="2.0"
 	    android:background="#003399"
-	    android:orientation="vertical" />
+	    android:orientation="vertical" >
+        
+        <Button
+            android:id="@+id/btnConfigSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/config_salvar"
+            android:onClick="btnConfigSave" />
+        
+        </LinearLayout>
 
 </LinearLayout>
