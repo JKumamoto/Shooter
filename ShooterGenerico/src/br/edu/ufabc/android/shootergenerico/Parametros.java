@@ -24,4 +24,5 @@ public class Parametros {
 	
 	public static int score;
 	public static boolean gameover;
+	
 }

@@ -20,6 +20,7 @@ public class GameOver extends Activity{
 	
 	public void btnVoltar(View v){
 		Intent i=new Intent(this, MenuActivity.class);
+		finish();
 		this.startActivity(i);
 	}
 

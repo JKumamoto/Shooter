@@ -9,6 +9,9 @@
     <string name="configNome">Troque o Nome</string>
     <string name="configSom">Altere o Som</string>
     <string name="config_salvar">Salvar</string>
+    <string name="btnVoltar">Voltar</string>
+    <string name="GameOver">Game Over</string>
+    <string name="pontuacao">Pontuacao: </string>
     
 
 </resources>

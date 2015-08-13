@@ -33,6 +33,7 @@ public class MainActivity extends Activity {
 					if(msg.what==100){
 						Context com=getBaseContext();
 						Intent i=new Intent(com, GameOver.class);
+						finish();
 						startActivity(i);
 					}
 				}
