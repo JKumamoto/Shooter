@@ -16,6 +16,7 @@ import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.preference.PreferenceManager;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
@@ -86,13 +87,13 @@ public class MainActivity extends Activity {
 		}
 		Parametros.media.prepare();
 		Parametros.media.setLooping(true);
-		SharedPreferences sp = getPreferences(Context.MODE_PRIVATE);
+		SharedPreferences sp =PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 		Parametros.som=1;
 		Parametros.Nome="AAA";
 		try{
-			Parametros.som=(sp.getInt("configVolume", 100)/100);
-			Parametros.Nome=sp.getString("nomePlayer", "AAA");
 			EditText nome = (EditText) findViewById(R.id.editTxtNome);
+			Parametros.som=(sp.getInt("configVolume", 100)/100);
+			Parametros.Nome=sp.getString("nomePlayer", nome.toString());
 			nome.setText(Parametros.Nome);
 		}catch(NullPointerException e){
 			e.printStackTrace();

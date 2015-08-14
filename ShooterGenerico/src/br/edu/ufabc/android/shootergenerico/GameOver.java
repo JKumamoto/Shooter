@@ -22,13 +22,11 @@ public class GameOver extends Activity{
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 		this.setContentView(R.layout.gameover);
 		TextView te=(TextView) findViewById(R.id.textView2);
-		te.setText("Pontuacao: "+Parametros.score);
+		te.setText(Parametros.Nome+"		"+Parametros.score);
 	}
 	
 	public void btnVoltar(View v){
-		Intent i=new Intent(this, MenuActivity.class);
 		finish();
-		this.startActivity(i);
 	}
 
 }
