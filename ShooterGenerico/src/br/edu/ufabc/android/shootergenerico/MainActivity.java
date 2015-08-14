@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.res.AssetFileDescriptor;
 import android.graphics.Point;
@@ -17,6 +18,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.EditText;
 
 public class MainActivity extends Activity {
 	
@@ -50,27 +52,7 @@ public class MainActivity extends Activity {
 			e.printStackTrace();
 		}
 	}
-	/*
-    protected void onPause(){
-    	super.onPause();
-    	t.interrupt();
-    }
-    
-    protected void onStop(){
-    	super.onStop();
-    	t.interrupt();
-    }
-    
-    protected void onDestroy(){
-    	super.onDestroy();
-    	try {
-			t.join(1);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-    }
-    */
-	
+
 	public void setUpParameters() throws IOException{
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -104,7 +86,16 @@ public class MainActivity extends Activity {
 		}
 		Parametros.media.prepare();
 		Parametros.media.setLooping(true);
-		Parametros.score=0;
-		Parametros.gameover=false;
+		SharedPreferences sp = getPreferences(Context.MODE_PRIVATE);
+		Parametros.som=1;
+		Parametros.Nome="AAA";
+		try{
+			Parametros.som=(sp.getInt("configVolume", 100)/100);
+			Parametros.Nome=sp.getString("nomePlayer", "AAA");
+			EditText nome = (EditText) findViewById(R.id.editTxtNome);
+			nome.setText(Parametros.Nome);
+		}catch(NullPointerException e){
+			e.printStackTrace();
+		}
 	}
 }

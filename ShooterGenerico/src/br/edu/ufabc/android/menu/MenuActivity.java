@@ -1,17 +1,26 @@
 package br.edu.ufabc.android.menu;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Vector;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
+import android.content.res.AssetFileDescriptor;
+import android.graphics.Point;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.Toast;
@@ -34,7 +43,9 @@ public class MenuActivity extends FragmentActivity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.menu_viewpager);
 		startPages();
+
 	}
+	
 	
 	private void startPages(){
 		fragments = new Vector<Fragment>();
@@ -46,7 +57,10 @@ public class MenuActivity extends FragmentActivity{
 		
 		ViewPager vPager = (ViewPager) findViewById(R.id.viewpager);
 		vPager.setAdapter(mPageAdapter);
+
 	}
+	
+
 	
 	public void btnConfigSave(View v){
 		nome = (EditText) findViewById(R.id.editTxtNome);

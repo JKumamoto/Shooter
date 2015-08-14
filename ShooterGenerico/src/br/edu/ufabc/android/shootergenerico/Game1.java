@@ -35,6 +35,8 @@ public class Game1 extends View implements Runnable{
 		inimigos=new ArrayList<Enemy>();
 		explosao=new ArrayList<Explosao>();
 		cont=0;
+		Parametros.score=0;
+		Parametros.gameover=false;
 		Parametros.media.setVolume(Parametros.som, Parametros.som);
 		Parametros.media.start();
 	}
