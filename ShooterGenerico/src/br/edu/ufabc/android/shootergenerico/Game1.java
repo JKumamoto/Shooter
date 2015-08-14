@@ -35,7 +35,8 @@ public class Game1 extends View implements Runnable{
 		inimigos=new ArrayList<Enemy>();
 		explosao=new ArrayList<Explosao>();
 		cont=0;
-		//Parametros.media.start();
+		Parametros.media.setVolume(Parametros.som, Parametros.som);
+		Parametros.media.start();
 	}
 	
 	@SuppressLint("ClickableViewAccessibility")
@@ -57,7 +58,7 @@ public class Game1 extends View implements Runnable{
 		jogador.Update(x, y);
 		Parametros.gameover=!jogador.isAtivo();
 		cont++;
-		if(cont%50==0)
+		if(cont%20==0)
 			AddTiros();
 		UpdateTiros();
 		UpdateCollision();
@@ -176,7 +177,7 @@ public class Game1 extends View implements Runnable{
 		}
 	}
 	
-	/*protected void onWindowVisibilityChanged(int visibility){
+	protected void onWindowVisibilityChanged(int visibility){
 		if(visibility==View.GONE){
 			try{
 				Parametros.media.stop();
@@ -187,5 +188,5 @@ public class Game1 extends View implements Runnable{
 		}else if(visibility==View.INVISIBLE){
 			Parametros.media.pause();
 		}
-	}*/
+	}
 }

@@ -67,7 +67,7 @@ public class MenuActivity extends FragmentActivity{
 			spEditor.commit();
 			Toast.makeText(this, "Dados Salvos com Sucesso", Toast.LENGTH_SHORT).show();
 		} else {
-			Toast.makeText(this, "Insira um nome v�lido!", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, "Insira um nome valido!", Toast.LENGTH_SHORT).show();
 		}	
 		
 	}

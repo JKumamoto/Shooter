@@ -1,13 +1,16 @@
 package br.edu.ufabc.android.shootergenerico;
 
 import java.io.IOException;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.res.AssetFileDescriptor;
 import android.graphics.Point;
 import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.Handler;
@@ -89,14 +92,18 @@ public class MainActivity extends Activity {
 		Parametros.efeitos=new SoundPool(2, AudioManager.STREAM_MUSIC, 0);
 		Parametros.soundID[0]=Parametros.efeitos.load(Parametros.assetman.openFd("laser.wav"), 1);
 		Parametros.soundID[1]=Parametros.efeitos.load(Parametros.assetman.openFd("explosion.wav"), 1);
-		/*
+		
 		Parametros.media=new MediaPlayer();
-		Parametros.media.setAudioStreamType(AudioManager.STREAM_MUSIC);
-		AssetFileDescriptor afd=Parametros.assetman.openFd("theme.mp3");
-		Parametros.media.setDataSource(afd.getFileDescriptor());
-		afd.close();
+		Parametros.media.reset();
+		try{
+			AssetFileDescriptor afd=Parametros.assetman.openFd("theme.mp3");
+			Parametros.media.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength());
+			afd.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 		Parametros.media.prepare();
-		Parametros.media.setLooping(true);*/
+		Parametros.media.setLooping(true);
 		Parametros.score=0;
 		Parametros.gameover=false;
 	}

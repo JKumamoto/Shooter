@@ -21,6 +21,7 @@ public class Parametros {
 	public static int[] streamID;
 	
 	public static float som;
+	public static String Nome;
 	
 	public static int score;
 	public static boolean gameover;
